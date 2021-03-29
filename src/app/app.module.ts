@@ -11,8 +11,13 @@ import {
   EventThumbnailComponent, 
   CreateEventComponent, 
   EventDetailsComponent, 
-  EventService } 
+  EventService,
+  CreateSessionComponent,
+  SessionListComponent
+} 
 from './events/index';
+import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +27,17 @@ from './events/index';
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    ErrorComponent
+    ErrorComponent,
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService],
+  providers: [EventService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
