@@ -6,6 +6,10 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { ErrorComponent } from './errors/error.component';
 
+import {
+  JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective
+} from './common/index';
+
 import { 
   EventsListComponent, 
   EventThumbnailComponent, 
@@ -18,7 +22,8 @@ import {
 } from './events/index';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
+
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,9 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService, AuthService],
+  providers: [EventService, AuthService,
+    {provide:JQ_TOKEN, useValue: jQuery}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
