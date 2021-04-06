@@ -20,10 +20,12 @@ import {
   SessionListComponent,
   DurationPipe,
   UpvoteComponent,
-  ValidateLocationDirective
+  ValidateLocationDirective,
+  EventResolverService
 } from './events/index';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 let jQuery = window['$'];
 
@@ -49,9 +51,10 @@ let jQuery = window['$'];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [EventService, AuthService,
+  providers: [EventService, AuthService, EventResolverService,
     {provide:JQ_TOKEN, useValue: jQuery}
   ],
   bootstrap: [AppComponent]
