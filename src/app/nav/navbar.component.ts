@@ -10,7 +10,7 @@ import { AuthService } from '../user/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  searchTerm:string = "";
+  searchTerm = "";
   foundSessions: ISession[];
 
   constructor(private auth:AuthService, private eventService:EventService) {  }

@@ -27,7 +27,7 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
-let jQuery = window['$'];
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
